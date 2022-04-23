@@ -1,0 +1,31 @@
+CREATE TABLE [dbo].[user](
+	[user_email] [varchar](80) NOT NULL,
+	[user_name] [varchar](50) NOT NULL,
+	[user_fullname] [varchar](120) NOT NULL,
+	[user_password] [varchar](50) NOT NULL,
+	[user_confirmation] [bit] NOT NULL,
+	[user_guid] [varchar](max) NOT NULL,
+ CONSTRAINT [PK_user] PRIMARY KEY CLUSTERED 
+(
+	[user_email] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[user] ADD  CONSTRAINT [DF_user_user_email]  DEFAULT ('') FOR [user_email]
+GO
+
+ALTER TABLE [dbo].[user] ADD  CONSTRAINT [DF_user_user_name]  DEFAULT ('') FOR [user_name]
+GO
+
+ALTER TABLE [dbo].[user] ADD  CONSTRAINT [DF_user_user_fullname]  DEFAULT ('') FOR [user_fullname]
+GO
+
+ALTER TABLE [dbo].[user] ADD  CONSTRAINT [DF_user_user_password]  DEFAULT ('') FOR [user_password]
+GO
+
+ALTER TABLE [dbo].[user] ADD  CONSTRAINT [DF_user_user_confirmation]  DEFAULT ((0)) FOR [user_confirmation]
+GO
+
+ALTER TABLE [dbo].[user] ADD  CONSTRAINT [DF_user_user_guid]  DEFAULT ('') FOR [user_guid]
+GO
