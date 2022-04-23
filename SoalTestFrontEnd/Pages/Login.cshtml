@@ -1,0 +1,69 @@
+﻿@page
+@model SoalTestFrontEnd.Pages.LoginModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SoalTestFrontEnd</title>
+    <link rel="stylesheet" href="~/css/bootstrapTheme.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/SoalTestFrontEnd.styles.css" asp-append-version="true" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+
+</head>
+<body>
+
+    <div class="container mt-5">
+
+        <div class="row justify-content-center align-items-center">
+            <div class="col-sm-12 col-md-12 col-lg-4">
+                <h1 class="mb-3">Login</h1>
+                <form method="post">
+
+                    <div class="mb-3">
+                        <label class="form-label" asp-for="User.username">User Name</label>
+                        <input type="text" class="form-control" asp-for="User.username" />
+                        <span asp-validation-for="User.username" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" asp-for="User.password">Password</label>
+                        <input type="password" class="form-control" asp-for="User.password" />
+                        <span asp-validation-for="User.password" class="text-danger"></span>
+                    </div>
+                    <div class="text-end mb-3">
+                        <a href="Forget-Password">Lupa password</a>
+                    </div>
+                    <div class="d-grid gap-2 mb-3">
+                        <button type="submit" class="btn btn-primary">Login</button>
+
+                    </div>
+                    <div class="text-center mb-3">
+                        Belum punya account ? Daftar di <a asp-page="Register">sini</a>
+                    </div>
+
+
+
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+
+   
+
+
+   
+
+
+</body>
+</html>

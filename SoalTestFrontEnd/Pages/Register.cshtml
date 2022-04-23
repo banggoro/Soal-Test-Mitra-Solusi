@@ -1,0 +1,84 @@
+﻿@page
+@model SoalTestFrontEnd.Pages.RegisterModel
+@{
+}
+@if (Model.Succes)
+{
+    <div class="container mt-5">
+        <div class="alert alert-success" role="alert">
+            <p>Register berhasil ! Cek inbox email anda untuk mengkonfirmasi pendaftaran</p>
+            <p>Kembali ke halaman <a asp-page="Login">Login</a></p>
+        </div>
+    </div>
+}
+else
+{
+    <div class="container mt-5">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-sm-12 col-md-12 col-lg-4">
+                <h1 class="mb-3">Register</h1>
+                <form method="post">
+                    <div class="mb-3">
+                        <label class="form-label" asp-for="Register.Email">Email address</label>
+                        <input type="text" class="form-control" asp-for="Register.Email" />
+                        <span asp-validation-for="Register.Email" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" asp-for="Register.UserName">User Name</label>
+                        <input type="text" class="form-control" asp-for="Register.UserName" />
+                        <span asp-validation-for="Register.UserName" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" asp-for="Register.FullName">Fullname</label>
+                        <input type="text" class="form-control" asp-for="Register.FullName" />
+                        <span asp-validation-for="Register.FullName" class="text-danger"></span>
+                    </div>
+                    <div class="mb-5">
+                        <label class="form-label" asp-for="Register.Password">Password</label>
+                        <input type="password" class="form-control" asp-for="Register.Password" />
+                        <span asp-validation-for="Register.Password" class="text-danger"></span>
+                    </div>
+                    <div class="d-grid gap-2 mb-3">
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <a class="btn btn-secondary" asp-page="Login">Back to Login</a>
+                    </div>
+                </form>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    if (Model.Message != "" && Model.Message != null)
+    {
+       
+        <div class="toast position-absolute bottom-40 end-0" style="margin-right:10px!important" id="mytoastr">
+            <div class="toast-body">
+                @Model.Message
+            </div>
+        </div>
+        <script>
+            $(document).ready(function () {
+            $('#mytoastr').toast({ delay: 2000 });
+            $('#mytoastr').toast('show');
+            });
+        </script>
+
+
+    }
+    Model.Message = "";
+
+
+
+
+
+}
+
+
+
+
+
+

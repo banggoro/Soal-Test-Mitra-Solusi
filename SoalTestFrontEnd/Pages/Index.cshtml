@@ -1,0 +1,16 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@if (string.IsNullOrEmpty(HttpContext.Session.GetString("UserName")))
+{
+    Response.Redirect("/Login");
+}
+else
+{
+    <div class="text-center mt-5">
+        <h1 class="display-4">Welcome,&nbsp;<strong>@HttpContext.Session.GetString("UserName")</strong></h1>
+    </div>
+}
